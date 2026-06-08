@@ -132,22 +132,22 @@ img { max-width: 100%; display: block; }
 /* Photo */
 .profile-photo-wrap {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 250px;
 }
 
 .profile-photo {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 250px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 6px;
   border: 3px solid var(--rule);
 }
 
 .profile-photo-placeholder {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
+  width: 200px;
+  height: 250px;
+  border-radius: 6px;
   background: var(--rule);
   border: 3px solid var(--rule);
   display: flex;

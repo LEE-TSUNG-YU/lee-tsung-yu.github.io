@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project — 李宗祐</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <a href="index.html" class="site-logo">李宗祐</a>
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="project.html" class="nav-link active">Project</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container page-content">
+    <h1 class="page-title">Project</h1>
+
+    <div class="pub-list">
+
+      <!-- Project 1 -->
+      <div class="pub-item">
+        <p class="pub-title">Your Project Title</p>
+        <p class="pub-authors">Brief description of the project — what problem it solves, what tools or methods you used, and what you learned.</p>
+        <div class="pub-links">
+          <a href="https://github.com/yourusername/project" class="pub-link" target="_blank">GitHub</a>
+          <a href="#" class="pub-link">Demo</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="pub-item">
+        <p class="pub-title">Another Project Title</p>
+        <p class="pub-authors">Brief description of the project — what problem it solves, what tools or methods you used, and what you learned.</p>
+        <div class="pub-links">
+          <a href="#" class="pub-link">GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> 李宗祐 (Lee, Tsung-Yu)</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
