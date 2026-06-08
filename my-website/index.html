@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TSUNG-YU LEE</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header"> 
+    <nav class="site-nav">
+      <a href="index.html" class="site-logo">李宗祐</a>
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="research.html" class="nav-link">Research</a>
+      <a href="teaching.html" class="nav-link">Teaching</a>
+      <a href="talks.html" class="nav-link">Talks</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <section class="profile">
+      <div class="profile-photo-wrap">
+        <!-- Replace src with your own photo -->
+        <img src="photo.jpg" alt="Your Name" class="profile-photo" onerror="this.style.display='none'">
+       <!-- <div class="profile-photo-placeholder" id="photo-placeholder">YN</div> -->
+      </div>
+
+      <div class="profile-content">
+        <h1 class="profile-name">李宗祐 (Lee, Tsung-Yu)</h1>
+        <p class="profile-title">Data Scientist</p>
+        <p class="profile-org">Department of Statistics, National Cheng Kung University</p>
+
+        <div class="profile-bio">
+          <p>
+            My name is 李宗祐. I graduate in NCKU.
+          </p>
+          <p>
+            I'm interested in Data science.
+          </p>
+          <p>
+            Mention your educational background — degrees earned, institutions attended, and any notable achievements. You may also link to your <a href="files/cv.pdf" class="inline-link">CV</a> for full details.
+          </p>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+          <a href="mailto:you@example.com" class="social-link" title="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" class="social-link" title="LinkedIn" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://github.com/yourusername" class="social-link" title="GitHub" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+          <a href="https://scholar.google.com/citations?user=YOURID" class="social-link" title="Google Scholar" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3L1 9l11 6 9-4.91V17M1 9v8"/><path d="M5 13.18v4L12 21l7-3.82v-4"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Your Name</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Hide placeholder if photo loads
+    const img = document.querySelector('.profile-photo');
+    const placeholder = document.getElementById('photo-placeholder');
+    if (img) {
+      img.addEventListener('load', () => { placeholder.style.display = 'none'; });
+    }
+  </script>
+</body>
+</html>

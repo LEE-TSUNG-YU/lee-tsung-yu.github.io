@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — Your Name</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="site-logo">Your Name</a>
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="research.html" class="nav-link active">Research</a>
+      <a href="teaching.html" class="nav-link">Teaching</a>
+      <a href="talks.html" class="nav-link">Talks</a>
+    </nav>
+  </header>
+
+  <main class="container page-content">
+    <h1 class="page-title">Research</h1>
+
+    <section class="content-section">
+      <h2 class="section-title">Publications</h2>
+
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <p class="pub-title">Title of Your Paper or Article</p>
+          <p class="pub-authors">Your Name, Co-Author One, Co-Author Two</p>
+          <p class="pub-journal"><em>Journal Name</em>, Year; Vol(Issue): pages.</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link">Paper</a>
+            <a href="#" class="pub-link">Code</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <p class="pub-title">Another Publication Title Goes Here</p>
+          <p class="pub-authors">Your Name, Co-Author One</p>
+          <p class="pub-journal"><em>Another Journal</em>, Year; Vol(Issue): pages.</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link">Paper</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">Software</h2>
+      <div class="pub-list">
+        <div class="pub-item">
+          <p class="pub-title">Your R Package or Software Name</p>
+          <p class="pub-authors">Brief description of what this software does and who it is for.</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link">GitHub</a>
+            <a href="#" class="pub-link">CRAN</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Your Name</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talks — Your Name</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="site-logo">Your Name</a>
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="research.html" class="nav-link">Research</a>
+      <a href="teaching.html" class="nav-link">Teaching</a>
+      <a href="talks.html" class="nav-link active">Talks</a>
+    </nav>
+  </header>
+
+  <main class="container page-content">
+    <h1 class="page-title">Talks</h1>
+
+    <section class="content-section">
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <p class="pub-title">Title of Your Talk or Presentation</p>
+          <p class="pub-authors">Conference or Event Name &middot; City, Country &middot; Month Year</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link">Slides</a>
+            <a href="#" class="pub-link">Video</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <p class="pub-title">Another Invited Talk or Keynote</p>
+          <p class="pub-authors">Institution or Symposium &middot; City &middot; Month Year</p>
+          <div class="pub-links">
+            <a href="#" class="pub-link">Slides</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <p class="pub-title">Panel Discussion: Topic of the Panel</p>
+          <p class="pub-authors">Workshop Name &middot; Virtual &middot; Month Year</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Your Name</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
