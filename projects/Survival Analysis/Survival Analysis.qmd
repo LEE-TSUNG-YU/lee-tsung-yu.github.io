@@ -1,7 +1,6 @@
 ---
 title: "存活分析 (Survival Analysis)"
 author: "Lee, Tsung-Yu"
-
 format:
   html:
     theme: cosmo
@@ -24,29 +23,24 @@ execute:
   message: false
 editor: visual
 lang: zh-TW
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Survival analysis in R
 
-這份教學講義將介紹生存分析（Survival Analysis）的基本概念，以及如何利用 R 語言進行分析與視覺化。
+這份教學講義將介紹存活分析（Survival Analysis）的基本概念，以及如何利用 R 語言進行分析與視覺化。
 
-在醫學研究中，研究者常關心病患的存活時間；在工程領域中，則可能關心產品故障時間；在商業分析中，則可能關心客戶流失時間。這類資料具有特殊性，因此需要專門的統計方法進行分析。
+在醫學研究中，研究者常關心病患的存活時間；在工程領域中，則可能關心產品故障時間；在商業分析中，則可能關心客戶流失時間。這類資料的存活與否與時間相關，因此需要運用專門的統計方法-存活分析。
 
 ## Part 1: Introduction to Survival Analysis
 
-存活分析是一種研究「事件發生時間（Time-to-Event）」的統計方法。
-常見事件包括：
-- 病患死亡
-- 癌症復發
-- 機器故障
-- 客戶流失
-- 信用違約
+存活分析是一種研究「事件發生時間（Time-to-Event）」的統計方法。 常見事件包括：病患死亡、癌症復發、機器故障、客戶流失、信用違約
 
-存活分析最重要的特色在於：
-1. 關注事件發生時間
-2. 能處理設限資料（Censored Data）
+存活分析最重要的特色在於： 1. 關注事件發生時間 2. 能處理設限資料（Censored Data）
 
 ### 存活函數
+
 存活函數定義為：
 
 $$
@@ -56,8 +50,8 @@ $$
 表示個體在時間 $t$ 之後仍然存活的機率。
 
 ### 風險函數 (Hazard Function)
-風險函數描述：個體已經存活到時間 $t$ 時，在下一個極短時間內發生事件的瞬時風險。
-表示為：
+
+風險函數描述：個體已經存活到時間 $t$ 時，在下一個極短時間內發生事件的瞬時風險。 表示為：
 
 $$
 h(t)
@@ -65,42 +59,39 @@ $$
 
 醫學研究中常將其解釋為死亡風險。
 
-### 截尾資料（Censoring）
+### 設限資料（Censoring）
 
-存活資料最重要的特性之一為截尾。
+存活資料最重要的特性之一為設限。
 
 例如：
 
-病患尚未死亡便結束追蹤
-研究期間失去聯絡
-提前退出研究
+-   病患尚未死亡便結束追蹤
+-   研究期間失去聯絡
+-   提前退出研究
 
-此時只知道：
-$$
+此時只知道： $$
 T > t
 $$
 
 而不知道實際事件發生時間。
 
 ## Kaplan-Meier
+
 Kaplan-Meier（KM）方法是一種非參數存活分析方法。
 
-主要用途：
-- 估計存活曲線
-- 描述存活機率變化
-- 比較不同群體存活情況
+主要用途： - 估計存活曲線 - 描述存活機率變化 - 比較不同群體存活情況
+
 ### Kaplan-Meier 估計式
-KM估計量：
-$$
+
+KM估計量： $$
 \prod_{i\le t}
 \left(
 1-\frac{d_i}{n_i}
 \right)
 $$
 
-其中：
-$d_i$：事件數
-$n_i$：風險集合人數
+其中： $d_i$：事件數 $n_i$：風險集合人數
+
 ```{r}
 library(survival) 
 data(lung) 
@@ -121,27 +112,21 @@ library(survminer)
 ggsurvplot( fit_km, risk.table = TRUE, conf.int = TRUE, pval = FALSE )
 ```
 
-
 ## Cox Regression
+
 Kaplan-Meier只能比較群組差異。
 
-若希望同時考慮：
-
-- 年齡
-- 性別
-- 治療方式
-
-則需要使用 Cox Regression。
+若希望同時考慮自變數，例如：年齡、性別、治療方式等等，則需要使用 Cox Regression。
 
 ### Cox模型公式
+
 $$
 h_0(t)e^{\beta X}
 $$
 
 其中：
 
-$h_0(t)$：基準危險函數
-$\beta$：迴歸係數
+$h_0(t)$：基準風險函數 $\beta$：迴歸係數
 
 Hazard Ratio
 
@@ -153,9 +138,9 @@ $$
 
 若：
 
-- HR > 1：風險增加
-- HR < 1：風險降低
-- HR = 1：無影響
+-   HR \> 1：風險增加
+-   HR \< 1：風險降低
+-   HR = 1：無影響
 
 ```{r}
 cox_model <- coxph(Surv(time, status == 2) ~ age + sex, data = lung) 
@@ -164,10 +149,11 @@ summary(cox_model)
 ```
 
 ## Log rank test
+
 若有兩組病患：
 
-- 治療組
-- 對照組
+-   治療組
+-   對照組
 
 肉眼看圖可能覺得有差異，但需要統計檢定確認。
 
@@ -190,6 +176,7 @@ survdiff( Surv(time, status == 2) ~ sex, data = lung )
 ```
 
 ## Example: `lung` dataset
+
 ```{r}
 data(lung)
 head(lung)
@@ -202,12 +189,202 @@ cox_fit <- coxph(Surv(time, status == 2) ~ age + sex + ph.ecog, data = lung)
 summary(cox_fit)
 ```
 
+
+若想要更漂亮的風格，以下介紹一些。
+
+```{r}
+library(survival)
+library(survminer)
+
+data(lung)
+
+fit <- survfit(Surv(time, status == 2) ~ sex, data = lung)
+
+# Basic plot with 95% CI and Log-rank test p-value
+ggsurvplot(fit, data = lung, conf.int = TRUE, pval = TRUE)
+```
+
+```{r}
+# Add risk table
+ggsurvplot(fit, data = lung, risk.table = TRUE)
+```
+
+```{r}
+# Change color
+ggsurvplot(fit, data = lung, palette = c("#E41A1C","#377EB8"))
+```
+
+```{r}
+# Change line type
+ggsurvplot(fit, data = lung, linetype = "strata")
+ggsurvplot(fit, data = lung, linetype = c("solid","dashed"))
+```
+
+```{r}
+ggsurvplot(fit, data = lung, 
+           legend.title = "Sex", legend.labs = c(   "Male","Female"))
+```
+
+```{r}
+# Customize Axis Labels
+ggsurvplot(fit, data = lung, 
+           xlab = "Days", ylab = "Overall Survival Probability")
+```
+
+```{r}
+# Control X-axis Breaks
+# 每 100 天顯示一個刻度。
+ggsurvplot(fit, data = lung, break.time.by = 100)
+```
+
+```{r}
+# Restrict X-axis Range
+# 只顯示前 800 天。
+ggsurvplot(
+  fit,
+  data = lung,
+  xlim = c(0, 800)
+)
+```
+
+```{r}
+# Show Median Survival
+# "none", "h", "v", "hv"
+ggsurvplot(
+  fit,
+  data = lung,
+  surv.median.line = "hv"
+)
+```
+
+```{r}
+# 顯示設限個案
+ggsurvplot(
+  fit,
+  data = lung,
+  censor = TRUE
+)
+# 調整符號
+ggsurvplot(
+  fit,
+  data = lung,
+  censor.shape = "|",
+  censor.size = 4
+)
+```
+
+```{r}
+# 醫學期刊風格
+ggsurvplot(
+  fit,
+  data = lung,
+
+  conf.int = TRUE,
+  pval = TRUE,
+  risk.table = TRUE,
+
+  risk.table.height = 0.25,
+
+  break.time.by = 100,
+
+  xlab = "Time (days)",
+  ylab = "Survival Probability",
+
+  palette = "lancet",
+
+  surv.median.line = "hv",
+
+  ggtheme = theme_bw()
+)
+```
+
+```{r}
+# 模仿醫學期刊風格
+ggsurvplot(
+  fit,
+  data = lung,
+
+  risk.table = TRUE,
+  pval = TRUE,
+  conf.int = TRUE,
+
+  palette = "nejm",
+
+  ggtheme = theme_classic()
+)
+```
+
+
+```{r}
+# 自訂
+library(survival)
+library(survminer)
+
+fit <- survfit(
+  Surv(time, status == 2) ~ sex,
+  data = lung
+)
+
+ggsurvplot(
+  fit,
+  data = lung,
+
+  conf.int = TRUE,
+  pval = TRUE,
+  risk.table = TRUE,
+
+  risk.table.height = 0.25,
+
+  surv.median.line = "hv",
+
+  break.time.by = 100,
+
+  xlab = "Time (days)",
+  ylab = "Overall Survival",
+
+  legend.title = "Sex",
+  legend.labs = c(
+    "Male",
+    "Female"
+  ),
+
+  palette = "lancet",
+
+  censor.shape = "|",
+  censor.size = 4,
+
+  ggtheme = theme_bw(base_size = 14)
+)
+```
+
+
+
+```{r}
+# 推薦預設模板
+ggsurvplot(
+  fit,
+  data = lung,
+
+  conf.int = TRUE,
+  pval = TRUE,
+  risk.table = TRUE,
+
+  surv.median.line = "hv",
+
+  break.time.by = 365,
+
+  palette = "lancet",
+
+  ggtheme = theme_bw(base_size = 14)
+)
+```
+
 ## 小結
 
 本講義介紹了：
 
-1. 存活分析基本概念
-2. Kaplan-Meier 方法
-3. Cox Regression
-4. Log-rank Test
-5. lung 資料集實作
+1.  存活分析基本概念
+2.  Kaplan-Meier 方法
+3.  Cox Regression
+4.  Log-rank Test
+5.  lung 資料集實作
