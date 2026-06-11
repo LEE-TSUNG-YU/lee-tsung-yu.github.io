@@ -8,7 +8,7 @@ format:
     toc-depth: 3
     toc-location: left
     number-sections: true
-    code-fold: true
+    code-fold: show
     code-summary: "Show code"
     code-copy: true
     code-overflow: wrap
@@ -16,7 +16,7 @@ format:
     fig-cap-location: bottom
     tbl-cap-location: top
     embed-resources: true
-    page-layout: full
+    page-layout: article
 execute:
   echo: true
   warning: false
@@ -179,203 +179,29 @@ survdiff( Surv(time, status == 2) ~ sex, data = lung )
 
 ```{r}
 data(lung)
-head(lung)
-km_sex <- survfit( Surv(time, status == 2) ~ sex, data = lung ) 
-ggsurvplot( km_sex, data = lung, risk.table = TRUE, pval = TRUE )
+km_sex <- survfit(Surv(time, status == 2) ~ sex, data = lung) 
+ggsurvplot(km_sex, data = lung, risk.table = TRUE, pval = TRUE)
 
-survdiff( Surv(time, status == 2) ~ sex, data = lung )
+survdiff(Surv(time, status == 2) ~ sex, data = lung)
 
 cox_fit <- coxph(Surv(time, status == 2) ~ age + sex + ph.ecog, data = lung) 
 summary(cox_fit)
 ```
 
-
-若想要更漂亮的風格，以下介紹一些。
+若想要更漂亮的風格，以下介紹各功能。
 
 ```{r}
-library(survival)
-library(survminer)
-
-data(lung)
-
 fit <- survfit(Surv(time, status == 2) ~ sex, data = lung)
-
-# Basic plot with 95% CI and Log-rank test p-value
-ggsurvplot(fit, data = lung, conf.int = TRUE, pval = TRUE)
-```
-
-```{r}
-# Add risk table
-ggsurvplot(fit, data = lung, risk.table = TRUE)
-```
-
-```{r}
-# Change color
-ggsurvplot(fit, data = lung, palette = c("#E41A1C","#377EB8"))
-```
-
-```{r}
-# Change line type
-ggsurvplot(fit, data = lung, linetype = "strata")
-ggsurvplot(fit, data = lung, linetype = c("solid","dashed"))
-```
-
-```{r}
 ggsurvplot(fit, data = lung, 
-           legend.title = "Sex", legend.labs = c(   "Male","Female"))
-```
-
-```{r}
-# Customize Axis Labels
-ggsurvplot(fit, data = lung, 
-           xlab = "Days", ylab = "Overall Survival Probability")
-```
-
-```{r}
-# Control X-axis Breaks
-# 每 100 天顯示一個刻度。
-ggsurvplot(fit, data = lung, break.time.by = 100)
-```
-
-```{r}
-# Restrict X-axis Range
-# 只顯示前 800 天。
-ggsurvplot(
-  fit,
-  data = lung,
-  xlim = c(0, 800)
-)
-```
-
-```{r}
-# Show Median Survival
-# "none", "h", "v", "hv"
-ggsurvplot(
-  fit,
-  data = lung,
-  surv.median.line = "hv"
-)
-```
-
-```{r}
-# 顯示設限個案
-ggsurvplot(
-  fit,
-  data = lung,
-  censor = TRUE
-)
-# 調整符號
-ggsurvplot(
-  fit,
-  data = lung,
-  censor.shape = "|",
-  censor.size = 4
-)
-```
-
-```{r}
-# 醫學期刊風格
-ggsurvplot(
-  fit,
-  data = lung,
-
-  conf.int = TRUE,
-  pval = TRUE,
-  risk.table = TRUE,
-
-  risk.table.height = 0.25,
-
-  break.time.by = 100,
-
-  xlab = "Time (days)",
-  ylab = "Survival Probability",
-
-  palette = "lancet",
-
-  surv.median.line = "hv",
-
-  ggtheme = theme_bw()
-)
-```
-
-```{r}
-# 模仿醫學期刊風格
-ggsurvplot(
-  fit,
-  data = lung,
-
-  risk.table = TRUE,
-  pval = TRUE,
-  conf.int = TRUE,
-
-  palette = "nejm",
-
-  ggtheme = theme_classic()
-)
-```
-
-
-```{r}
-# 自訂
-library(survival)
-library(survminer)
-
-fit <- survfit(
-  Surv(time, status == 2) ~ sex,
-  data = lung
-)
-
-ggsurvplot(
-  fit,
-  data = lung,
-
-  conf.int = TRUE,
-  pval = TRUE,
-  risk.table = TRUE,
-
-  risk.table.height = 0.25,
-
-  surv.median.line = "hv",
-
-  break.time.by = 100,
-
-  xlab = "Time (days)",
-  ylab = "Overall Survival",
-
-  legend.title = "Sex",
-  legend.labs = c(
-    "Male",
-    "Female"
-  ),
-
-  palette = "lancet",
-
-  censor.shape = "|",
-  censor.size = 4,
-
-  ggtheme = theme_bw(base_size = 14)
-)
-```
-
-
-
-```{r}
-# 推薦預設模板
-ggsurvplot(
-  fit,
-  data = lung,
-
-  conf.int = TRUE,
-  pval = TRUE,
-  risk.table = TRUE,
-
-  surv.median.line = "hv",
-
-  break.time.by = 365,
-
-  palette = "lancet",
-
-  ggtheme = theme_bw(base_size = 14)
+           conf.int = TRUE, # 增加95%信賴水準的陰影區間, c(FALSE, TRUE, 0.90, 0.99)
+           pval = TRUE, # 顯示 Log-rank test p-value
+           risk.table = TRUE, # 顯示下方的Risk table
+           risk.table.height = 0.30, # Risk table 占整張圖的比例
+           break.time.by = 100, # x-axis 每100天顯示一個刻度。
+           xlab = "Time (days)", ylab = "Survival Probability",
+           palette = "lancet", 
+           surv.median.line = "hv", # 標示中位存活時間 (median survival time) 的位置線
+           ggtheme = theme_bw() # 白底黑框
 )
 ```
 
