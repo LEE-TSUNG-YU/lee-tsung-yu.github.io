@@ -34,21 +34,21 @@ Using Power BI, an interactive dashboard was developed to transform raw survey d
 
 
 
-1\. Which countries contribute the largest number of survey respondents?
+1. Which countries contribute the largest number of survey respondents?
 
-2\. How do average salaries vary across data-related job titles?
+2. How do average salaries vary across data-related job titles?
 
-3\. What is the demographic profile of survey participants?
+3. What is the demographic profile of survey participants?
 
-4\. Which programming languages are most preferred among data professionals?
+4. Which programming languages are most preferred among data professionals?
 
-5\. How satisfied are professionals with their work-life balance?
+5. How satisfied are professionals with their work-life balance?
 
-6\. How satisfied are professionals with their current salary?
+6. How satisfied are professionals with their current salary?
 
-7\. Which data careers offer the highest compensation?
+7. Which data careers offer the highest compensation?
 
-8\. What trends can be identified within the global data workforce?
+8. What trends can be identified within the global data workforce?
 
 
 
@@ -56,7 +56,7 @@ Using Power BI, an interactive dashboard was developed to transform raw survey d
 
 
 
-!\[image](https://github.com/LEE-TSUNG-YU/lee-tsung-yu.github.io/blob/main/projects/PowerBI/DashbordPreview.png)
+![image](https://github.com/LEE-TSUNG-YU/lee-tsung-yu.github.io/blob/main/projects/PowerBI/DashbordPreview.png)
 
 
 
