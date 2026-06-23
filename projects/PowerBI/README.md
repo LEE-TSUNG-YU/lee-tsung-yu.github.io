@@ -1,8 +1,8 @@
-\# Data Professional Survey Dashboard | Power BI
+# Data Professional Survey Dashboard | Power BI
 
 
 
-\## Project Overview
+## Project Overview
 
 
 
@@ -14,39 +14,23 @@ Using Power BI, an interactive dashboard was developed to transform raw survey d
 
 
 
-\---
+### Data Used
 
 
 
-\## Data Used
+**Dataset** - Data Professional Survey Dataset
 
 
 
-\*\*Dataset\*\* - Data Professional Survey Dataset
+**Number of Records** - 630 Survey Responses
 
 
 
-\*\*Number of Records\*\* - 630 Survey Responses
+**Data Visualization** - Power BI
 
 
 
-\*\*Data Preparation\*\* - Power Query
-
-
-
-\*\*Data Modeling\*\* - DAX Measures
-
-
-
-\*\*Data Visualization\*\* - Power BI
-
-
-
-\---
-
-
-
-\## Business Questions
+### Business Questions
 
 
 
@@ -68,217 +52,107 @@ Using Power BI, an interactive dashboard was developed to transform raw survey d
 
 
 
-\---
+### Dashboard Preview
 
 
 
-\## Dashboard Preview
+!\[image](https://github.com/LEE-TSUNG-YU/lee-tsung-yu.github.io/blob/main/projects/PowerBI/DashbordPreview.png)
 
 
 
-!\[image]()
+### Key Insights
 
 
 
-\---
+#### Workforce Demographics
 
 
 
-\## Key Insights
+* A total of 630 data professionals participated in the survey.
+* The average respondent age is 29.87 years.
+* The largest respondent groups came from Canada, India, the United States, and the United Kingdom.
 
 
 
-\### Workforce Demographics
+#### Salary Analysis
 
 
 
-\* A total of 630 data professionals participated in the survey.
+* Data Scientists reported the highest average salary among surveyed occupations.
+* Data Engineers and Data Architects followed closely behind.
+* Students and job seekers recorded the lowest average salary levels.
 
-\* The average respondent age is 29.87 years.
 
-\* The largest respondent groups came from Canada, India, the United States, and the United Kingdom.
 
+#### Programming Language Preferences
 
 
-\### Salary Analysis
 
+* Python is the dominant programming language across nearly all data-related professions.
+* R remains the second most popular language, particularly among analytical and statistical professionals.
+* Java, JavaScript, and C/C++ showed significantly lower adoption rates.
 
 
-\* Data Scientists reported the highest average salary among surveyed occupations.
 
-\* Data Engineers and Data Architects followed closely behind.
+#### Workplace Satisfaction
 
-\* Students and job seekers recorded the lowest average salary levels.
 
 
+* Average work-life balance satisfaction scored 5.74 out of 10.
+* Average salary satisfaction scored 4.27 out of 10.
+* Compensation satisfaction is substantially lower than work-life balance satisfaction, suggesting salary remains a major concern among data professionals.
 
-\### Programming Language Preferences
 
 
+#### Industry Trends
 
-\* Python is the dominant programming language across nearly all data-related professions.
 
-\* R remains the second most popular language, particularly among analytical and statistical professionals.
 
-\* Java, JavaScript, and C/C++ showed significantly lower adoption rates.
+* Python continues to be the primary technical skill across the data industry.
+* Advanced technical roles generally receive higher compensation.
+* Despite strong demand for data talent, overall salary satisfaction remains relatively low.
 
 
 
-\### Workplace Satisfaction
+### Business Recommendations
 
 
 
-\* Average work-life balance satisfaction scored 5.74 out of 10.
+#### For Aspiring Data Professionals
 
-\* Average salary satisfaction scored 4.27 out of 10.
 
-\* Compensation satisfaction is substantially lower than work-life balance satisfaction, suggesting salary remains a major concern among data professionals.
 
+* Prioritize Python as a core technical skill due to its widespread adoption across multiple data roles.
+* Consider career paths such as Data Scientist, Data Engineer, or Data Architect for stronger earning potential.
 
 
-\### Industry Trends
 
+#### For Organizations
 
 
-\* Python continues to be the primary technical skill across the data industry.
 
-\* Advanced technical roles generally receive higher compensation.
+* Review compensation structures to improve employee satisfaction and retention.
+* Invest in employee development programs focused on Python and modern data technologies.
+* Monitor employee satisfaction metrics beyond salary to maintain a healthy work-life balance culture.
 
-\* Despite strong demand for data talent, overall salary satisfaction remains relatively low.
 
 
+#### For Hiring Managers
 
-\---
 
 
+* Align recruitment strategies with current market demand for Python-related skills.
+* Benchmark salary offerings against industry standards to remain competitive in attracting talent.
 
-\## Business Recommendations
 
 
 
-\### For Aspiring Data Professionals
 
+### Limitations
 
-
-\* Prioritize Python as a core technical skill due to its widespread adoption across multiple data roles.
-
-\* Consider career paths such as Data Scientist, Data Engineer, or Data Architect for stronger earning potential.
-
-
-
-\### For Organizations
-
-
-
-\* Review compensation structures to improve employee satisfaction and retention.
-
-\* Invest in employee development programs focused on Python and modern data technologies.
-
-\* Monitor employee satisfaction metrics beyond salary to maintain a healthy work-life balance culture.
-
-
-
-\### For Hiring Managers
-
-
-
-\* Align recruitment strategies with current market demand for Python-related skills.
-
-\* Benchmark salary offerings against industry standards to remain competitive in attracting talent.
-
-
-
-\---
-
-
-
-\## Skills Demonstrated
-
-
-
-\### Business Intelligence
-
-
-
-\* Interactive Dashboard Development
-
-\* KPI Design and Monitoring
-
-\* Data Storytelling
-
-
-
-\### Data Analytics
-
-
-
-\* Exploratory Data Analysis (EDA)
-
-\* Descriptive Analytics
-
-\* Trend Analysis
-
-
-
-\### Power BI
-
-
-
-\* Power Query
-
-\* Data Modeling
-
-\* DAX Measures
-
-\* Dashboard Design
-
-\* Data Visualization
-
-
-
-\### Professional Skills
-
-
-
-\* Business Insight Generation
-
-\* Data-Driven Decision Making
-
-\* Analytical Thinking
-
-\* Report Development
-
-
-
-\---
-
-
-
-\## Limitations
-
-
-
-\* Survey responses are self-reported and may contain personal bias.
-
-\* The dataset contains only 630 respondents and may not fully represent the global data professional population.
-
-\* Salary comparisons do not account for geographic cost-of-living differences.
-
-\* Some job categories have relatively small sample sizes, which may affect average salary estimates.
-
-\* Survey findings represent a specific point in time and may change as industry conditions evolve.
-
-
-
-\---
-
-
-
-\## Conclusion
-
-
-
-This dashboard provides a comprehensive overview of the current data profession landscape, including compensation trends, workforce demographics, programming language preferences, and employee satisfaction. The findings can support career planning, workforce development, and business decision-making within the rapidly growing data industry.
-
-
+* Survey responses are self-reported and may contain personal bias.
+* The dataset contains only 630 respondents and may not fully represent the global data professional population.
+* Salary comparisons do not account for geographic cost-of-living differences.
+* Some job categories have relatively small sample sizes, which may affect average salary estimates.
+* Survey findings represent a specific point in time and may change as industry conditions evolve.
 
