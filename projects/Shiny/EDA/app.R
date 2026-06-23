@@ -63,7 +63,15 @@ data.summary.tab <- tabItem(tabName = "DataSummary",
 # "Statistical Tests" tab
 test.tab <- tabItem(tabName = "test",
   fluidRow(
-    
+    tabsetPanel(id = "testpanel", selected = "One group", vertical = FALSE,
+      tabPanel(title = "One group", 
+        tabsetPanel(id = "onegroup", selected = "One-sample t test", vertical = FALSE,
+          tabPanel(title = "One-sample t test", 
+                   selectInput(inputId = "OneSampleT.var1", label = "Select a Continuous Variable",
+                               choices = NULL)))                 
+        ),
+      tabPanel(title = "Two groups", "This is two."),
+      tabPanel(title = "Three or more groups", "This is three."))
   )
 )
 
@@ -84,12 +92,18 @@ ui <- dashboardPage(dark = FALSE, fullscreen = TRUE, scrollToTop = TRUE,
   body = dashboardBody(tabItems(data.summary.tab, test.tab, plots.tab))
 )
 
-server <- function(input, output){
+server <- function(input, output, session){
   
   # Read input file
   data <- reactive({
     req(input$file)
     read.csv(input$file$datapath)
+  })
+  
+  observe({
+    req(data())
+    numeric_vars <- names(data())[sapply(data(), is.numeric)]
+    updateSelectInput(session, "OneSampleT.var1", choices = numeric_vars)
   })
   
   output$DataPreview <- renderDT({
@@ -115,5 +129,6 @@ server <- function(input, output){
               rownames = T)
   })
 }
+
 # Run the application 
 shinyApp(ui = ui, server = server)
